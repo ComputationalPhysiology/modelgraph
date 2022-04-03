@@ -1,3 +1,6 @@
+[![codecov](https://codecov.io/gh/ComputationalPhysiology/modelgraph/branch/main/graph/badge.svg?token=C4YKKMJ4H8)](https://codecov.io/gh/ComputationalPhysiology/modelgraph)
+[![CI](https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/main.yml/badge.svg)](https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/main.yml)
+[![github pages](https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/github-pages.yml/badge.svg)](https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/github-pages.yml)
 # modelgraph
 
 A tool for visualizing dependencies between different components of your model.
@@ -27,7 +30,7 @@ import matplotlib.pyplot as plt
 nx.draw(G, with_labels=True, font_size=10, node_size=2000)
 plt.savefig("g_Na_mpl.png")
 ```
-![_](docs/source/_static/g_Na_mpl.png)
+![_](https://github.com/ComputationalPhysiology/modelgraph/blob/main/docs/source/_static/g_Na_mpl.png)
 
 
 ```python
@@ -35,7 +38,8 @@ plt.savefig("g_Na_mpl.png")
 P = nx.nx_pydot.to_pydot(G)
 P.write_png("g_Na_pydot.png")
 ```
-![_](docs/source/_static/g_Na_pydot.png)
+
+![_](https://github.com/ComputationalPhysiology/modelgraph/blob/main/docs/source/_static/g_Na_pydot.png)
 
 It is also possible to
 
