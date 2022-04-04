@@ -1,6 +1,8 @@
 [![codecov](https://codecov.io/gh/ComputationalPhysiology/modelgraph/branch/main/graph/badge.svg?token=C4YKKMJ4H8)](https://codecov.io/gh/ComputationalPhysiology/modelgraph)
 [![CI](https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/main.yml/badge.svg)](https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/main.yml)
 [![github pages](https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/github-pages.yml/badge.svg)](https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/github-pages.yml)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ComputationalPhysiology/modelgraph/main.svg)](https://results.pre-commit.ci/latest/github/ComputationalPhysiology/modelgraph/main)
+
 # modelgraph
 
 A tool for visualizing dependencies between different components of your model.
