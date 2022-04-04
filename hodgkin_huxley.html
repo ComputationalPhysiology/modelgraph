@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>&lt;no title&gt;</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="modelgraph" href="modules.html" />
+  <link rel="prev" title="modelgraph" href="index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">modelgraph</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#license">Contents:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current"><no title></a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="modules.html" class="reference internal ">modelgraph</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>&lt;no title&gt;</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="index.html"
+       title="previous chapter">← modelgraph</a>
+  </li>
+  <li class="next">
+    <a href="modules.html"
+       title="next chapter">modelgraph →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Demo</span>
+<span class="c1">#</span>
+<span class="c1"># In this demo we will demonstrate how you can use the python API to visualize the dependencies in the Hodgkin Huxley model  of the squid axon from 1952. This model is taken from https://models.cellml.org/workspace/hodgkin_huxley_1952 and converted to a gotran `.ode` file using `gotran` and the `cellml2gotran` script</span>
+<span class="c1">#</span>
+<span class="c1"># First we make the necessary imports</span>
+<span class="kn">import</span> <span class="nn">gotran</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">from</span> <span class="nn">modelgraph</span> <span class="kn">import</span> <span class="n">DependencyGraph</span>
+</pre></div>
+</div>
+<p>and load the ode file</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ode</span> <span class="o">=</span> <span class="n">gotran</span><span class="o">.</span><span class="n">load_ode</span><span class="p">(</span><span class="s2">&quot;hodgkin_huxley_squid_axon_model_1952_original.ode&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next we build the dependency graph</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">graph</span> <span class="o">=</span> <span class="n">DependencyGraph</span><span class="p">(</span><span class="n">ode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and get the graph of the expressions that depends on the parameter <code class="docutils literal notranslate"><span class="pre">g_Na</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">G_g_Na</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">inv_dependency_graph</span><span class="p">(</span><span class="s2">&quot;g_Na&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We plot this using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G_g_Na</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;g_Na_mpl.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="_" src="_images/g_Na_mpl.png" /></p>
+<p>and using <code class="docutils literal notranslate"><span class="pre">pydot</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">P_g_Na</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">nx_pydot</span><span class="o">.</span><span class="n">to_pydot</span><span class="p">(</span><span class="n">G_g_Na</span><span class="p">)</span>
+<span class="n">P_g_Na</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s2">&quot;g_Na_pydot.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="_" src="_images/g_Na_pydot.png" /></p>
+<p>Finally we grab the graph of the dependencies of <code class="docutils literal notranslate"><span class="pre">dV_dt</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize what dV_dt depdens on</span>
+<span class="n">G_dV_dt</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">dependency_graph</span><span class="p">(</span><span class="s2">&quot;dV_dt&quot;</span><span class="p">)</span>
+<span class="c1"># and visualize this using `pydot`</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">P_dV_dt</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">nx_pydot</span><span class="o">.</span><span class="n">to_pydot</span><span class="p">(</span><span class="n">G_dV_dt</span><span class="p">)</span>
+<span class="n">P_dV_dt</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s2">&quot;dV_dt_pydot.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="_" src="_images/dV_dt_pydot.png" /></p>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="index.html"
+       title="previous chapter">← modelgraph</a>
+  </li>
+  <li class="next">
+    <a href="modules.html"
+       title="next chapter">modelgraph →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2022, Henrik Finsberg.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>
