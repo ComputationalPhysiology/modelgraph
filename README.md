@@ -58,12 +58,27 @@ Here we only display the graph `pydot` since the `matplotlib` version seems to b
 
 ![_](https://github.com/ComputationalPhysiology/modelgraph/blob/main/docs/source/_static/dV_dt_pydot.png)
 
+
 ## Installation
 Install with pip
 ```
 python3 -m pip install modelgraph
 ```
 
+## GUI
+
+There is also a graphical user interface. To use this you need to install `streamlit`
+```
+python -m pip install streamlit
+```
+You can run the the gui by passing in the `.ode` file as a command line argument e.g
+
+```
+python -m modelgraph demo/hodgkin_huxley_squid_axon_model_1952_original.ode
+```
+This will start a `streamlit` server, and the GUI is now hosted on http://localhost:8501
+
+![_](https://github.com/ComputationalPhysiology/modelgraph/blob/main/docs/source/_static/gui.gif)
 
 ## Documentation
 
