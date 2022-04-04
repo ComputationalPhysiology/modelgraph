@@ -41,8 +41,22 @@ P.write_png("g_Na_pydot.png")
 
 ![_](https://github.com/ComputationalPhysiology/modelgraph/blob/main/docs/source/_static/g_Na_pydot.png)
 
-It is also possible to
+It is also possible to go the other way around, i.e if you want to look at e.g `dV_dt` and see that it depends on
 
+```python
+# Visualize what dV_dt depdens on
+G_dV_dt = graph.dependency_graph("dV_dt")
+
+nx.draw(G_dV_dt, with_labels=True, font_size=10, node_size=2000)
+plt.savefig("dV_dt_mpl.png")
+
+P_dV_dt = nx.nx_pydot.to_pydot(G_dV_dt)
+P_dV_dt.write_png("dV_dt_pydot.png")
+```
+
+Here we only display the graph `pydot` since the `matplotlib` version seems to be a bit messy if the graph becomes too large
+
+![_](https://github.com/ComputationalPhysiology/modelgraph/blob/main/docs/source/_static/dV_dt_pydot.png)
 
 ## Installation
 Install with pip
