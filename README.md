@@ -8,7 +8,7 @@
 A tool for visualizing dependencies between different components of your model.
 
 ## Motivation
-Assume you have some model, represented as a system of ODEs with potentially several intermediation expression. For example in the classical Hodgkin Huxley model of the squid axon from 1952 we have the following expressions
+Assume you have some model, represented as a system of ODEs with potentially several intermediation expressions. For example in the classical Hodgkin Huxley model of the squid axon from 1952 we have the following expressions
 
 ```git@github.com:ComputationalPhysiology/modelgraph.git
 dV_dt = -(-i_Stim + i_Na + i_K + i_L)/Cm
@@ -43,7 +43,7 @@ P.write_png("g_Na_pydot.png")
 
 ![_](https://github.com/ComputationalPhysiology/modelgraph/blob/main/docs/source/_static/g_Na_pydot.png)
 
-It is also possible to go the other way around, i.e if you want to look at e.g `dV_dt` and see that it depends on
+It is also possible to go the other way around, i.e if you want to look at e.g `dV_dt` and see what it depends on
 
 ```python
 # Visualize what dV_dt depdens on
@@ -56,7 +56,7 @@ P_dV_dt = nx.nx_pydot.to_pydot(G_dV_dt)
 P_dV_dt.write_png("dV_dt_pydot.png")
 ```
 
-Here we only display the graph `pydot` since the `matplotlib` version seems to be a bit messy if the graph becomes too large
+Here we only display the graph using `pydot` since the `matplotlib` version seems to be a bit messy if the graph becomes too large
 
 ![_](https://github.com/ComputationalPhysiology/modelgraph/blob/main/docs/source/_static/dV_dt_pydot.png)
 
@@ -95,7 +95,7 @@ python3 -m pytest tests -vv
 ```
 
 ## Contributing
-See [the contributing section](https://computationalphysiology.github.io/simcardems/CONTRIBUTING.html)
+See [the contributing section](https://github.com/ComputationalPhysiology/modelgraph/blob/main/CONTRIBUTING.md)
 
 
 
