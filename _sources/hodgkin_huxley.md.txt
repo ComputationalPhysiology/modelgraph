@@ -1,9 +1,10 @@
+# Demo
+
+In this demo we will demonstrate how you can use the python API to visualize the dependencies in the Hodgkin Huxley model  of the squid axon from 1952. This model is taken from <https://models.cellml.org/workspace/hodgkin_huxley_1952> and converted to a gotran `.ode` file using `gotran` and the `cellml2gotran` script
+
+First we make the necessary imports
+
 ```python
-# # Demo
-#
-# In this demo we will demonstrate how you can use the python API to visualize the dependencies in the Hodgkin Huxley model  of the squid axon from 1952. This model is taken from https://models.cellml.org/workspace/hodgkin_huxley_1952 and converted to a gotran `.ode` file using `gotran` and the `cellml2gotran` script
-#
-# First we make the necessary imports
 import gotran
 import matplotlib.pyplot as plt
 import networkx as nx
