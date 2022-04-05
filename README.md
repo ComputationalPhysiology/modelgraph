@@ -8,7 +8,7 @@
 A tool for visualizing dependencies between different components of your model.
 
 ## Motivation
-Assume you have some model, represented as a system of ODEs with potentially several intermediation expressions. For example in the classical Hodgkin Huxley model of the squid axon from 1952 we have the following expressions
+Assume you have some model, represented as a system of ODEs with potentially several intermediate expressions. For example in the classical Hodgkin Huxley model of the squid axon from 1952 we have the following expressions
 
 ```git@github.com:ComputationalPhysiology/modelgraph.git
 dV_dt = -(-i_Stim + i_Na + i_K + i_L)/Cm
