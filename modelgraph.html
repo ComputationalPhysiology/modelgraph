@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
       <title>modelgraph package</title>
     
@@ -13,6 +13,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
 
       
@@ -121,22 +122,22 @@
           <div class="content" role="main" v-pre>
             
   <section id="modelgraph-package">
-<h1>modelgraph package<a class="headerlink" href="#modelgraph-package" title="Permalink to this headline">¶</a></h1>
+<h1>modelgraph package<a class="headerlink" href="#modelgraph-package" title="Permalink to this heading">¶</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="module-modelgraph.cli">
-<span id="modelgraph-cli-module"></span><h2>modelgraph.cli module<a class="headerlink" href="#module-modelgraph.cli" title="Permalink to this headline">¶</a></h2>
+<span id="modelgraph-cli-module"></span><h2>modelgraph.cli module<a class="headerlink" href="#module-modelgraph.cli" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="module-modelgraph.dependency_graph">
-<span id="modelgraph-dependency-graph-module"></span><h2>modelgraph.dependency_graph module<a class="headerlink" href="#module-modelgraph.dependency_graph" title="Permalink to this headline">¶</a></h2>
+<span id="modelgraph-dependency-graph-module"></span><h2>modelgraph.dependency_graph module<a class="headerlink" href="#module-modelgraph.dependency_graph" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gotran.model.ode.ODE</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ODE</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.dependency_graph">
-<span class="sig-name descname"><span class="pre">dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">networkx.classes.digraph.DiGraph</span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependency_graph" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DiGraph</span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependency_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the dependency graph where each node reperesents
 an expression and a directed edge means that there is
 a dependency.</p>
@@ -144,13 +145,13 @@ a dependency.</p>
 another node if the root node is a dependency of the
 other node.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Name of the root node</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A directed dependency graph</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>nx.DiGraph</p>
 </dd>
 </dl>
@@ -161,10 +162,10 @@ other node.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependent_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return all the names of the expressions having dependencies</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of names</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[str]</p>
 </dd>
 </dl>
@@ -175,17 +176,17 @@ other node.</p>
 <span class="sig-name descname"><span class="pre">dependents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a name of an expression return its dependencies</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – Name of the expression</p></li>
 <li><p><strong>direct</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to return only direct depenencies or also include
 indirect dependencies, by default True</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Set of names of all dependencies</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>set[str]</p>
 </dd>
 </dl>
@@ -200,13 +201,13 @@ a dependency.</p>
 <p>There will be a directed edge from the root node to
 another node if the root node depends on the other node.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Name of the root node</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A directed dependency graph</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>nx.DiGraph</p>
 </dd>
 </dl>
@@ -217,10 +218,10 @@ another node if the root node depends on the other node.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inv_dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependent_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return all the names of the expressions that other expressions depdens on</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of names</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[str]</p>
 </dd>
 </dl>
@@ -232,17 +233,17 @@ another node if the root node depends on the other node.</p>
 <dd><p>Given a name of an expression return all expressions
 that depends on it</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – Name of the expression</p></li>
 <li><p><strong>direct</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to return only direct depenencies or also include
 indirect dependencies, by default True</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Set of names of all dependencies</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>set[str]</p>
 </dd>
 </dl>
@@ -250,7 +251,7 @@ indirect dependencies, by default True</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.ode">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gotran.model.ode.ODE</span></em><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.ode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ODE</span></em><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.ode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the ode</p>
 </dd></dl>
 
@@ -258,14 +259,14 @@ indirect dependencies, by default True</p></li>
 
 </section>
 <section id="module-modelgraph">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-modelgraph" title="Permalink to this headline">¶</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-modelgraph" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gotran.model.ode.ODE</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ODE</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph.dependency_graph">
-<span class="sig-name descname"><span class="pre">dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">networkx.classes.digraph.DiGraph</span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph.dependency_graph" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DiGraph</span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph.dependency_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the dependency graph where each node reperesents
 an expression and a directed edge means that there is
 a dependency.</p>
@@ -273,13 +274,13 @@ a dependency.</p>
 another node if the root node is a dependency of the
 other node.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Name of the root node</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A directed dependency graph</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>nx.DiGraph</p>
 </dd>
 </dl>
@@ -290,10 +291,10 @@ other node.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.DependencyGraph.dependent_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return all the names of the expressions having dependencies</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of names</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[str]</p>
 </dd>
 </dl>
@@ -304,17 +305,17 @@ other node.</p>
 <span class="sig-name descname"><span class="pre">dependents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph.dependents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a name of an expression return its dependencies</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – Name of the expression</p></li>
 <li><p><strong>direct</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to return only direct depenencies or also include
 indirect dependencies, by default True</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Set of names of all dependencies</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>set[str]</p>
 </dd>
 </dl>
@@ -329,13 +330,13 @@ a dependency.</p>
 <p>There will be a directed edge from the root node to
 another node if the root node depends on the other node.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Name of the root node</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A directed dependency graph</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>nx.DiGraph</p>
 </dd>
 </dl>
@@ -346,10 +347,10 @@ another node if the root node depends on the other node.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inv_dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.DependencyGraph.inv_dependent_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return all the names of the expressions that other expressions depdens on</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List of names</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[str]</p>
 </dd>
 </dl>
@@ -361,17 +362,17 @@ another node if the root node depends on the other node.</p>
 <dd><p>Given a name of an expression return all expressions
 that depends on it</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – Name of the expression</p></li>
 <li><p><strong>direct</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to return only direct depenencies or also include
 indirect dependencies, by default True</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Set of names of all dependencies</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>set[str]</p>
 </dd>
 </dl>
@@ -379,7 +380,7 @@ indirect dependencies, by default True</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph.ode">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">gotran.model.ode.ODE</span></em><a class="headerlink" href="#modelgraph.DependencyGraph.ode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ODE</span></em><a class="headerlink" href="#modelgraph.DependencyGraph.ode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the ode</p>
 </dd></dl>
 
@@ -399,7 +400,7 @@ indirect dependencies, by default True</p></li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2022, Henrik Finsberg.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
 </div>
             </div>
           </div>

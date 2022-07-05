@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
       <title>modelgraph</title>
     
@@ -13,6 +13,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
 
       
@@ -120,11 +121,11 @@
             
   <p><a class="reference external" href="https://codecov.io/gh/ComputationalPhysiology/modelgraph"><img alt="codecov" src="https://codecov.io/gh/ComputationalPhysiology/modelgraph/branch/main/graph/badge.svg?token=C4YKKMJ4H8" /></a> <a class="reference external" href="https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/main.yml"><img alt="CI" src="https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/main.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/github-pages.yml"><img alt="github pages" src="https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/github-pages.yml/badge.svg" /></a> <a class="reference external" href="https://results.pre-commit.ci/latest/github/ComputationalPhysiology/modelgraph/main"><img alt="pre-commit.ci status" src="https://results.pre-commit.ci/badge/github/ComputationalPhysiology/modelgraph/main.svg" /></a></p>
 <section id="modelgraph">
-<h1>modelgraph<a class="headerlink" href="#modelgraph" title="Permalink to this headline">¶</a></h1>
+<h1>modelgraph<a class="headerlink" href="#modelgraph" title="Permalink to this heading">¶</a></h1>
 <p>A tool for visualizing dependencies between different components of your
 model.</p>
 <section id="motivation">
-<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading">¶</a></h2>
 <p>Assume you have some model, represented as a system of ODEs with
 potentially several intermediation expression. For example in the
 classical Hodgkin Huxley model of the squid axon from 1952 we have the
@@ -183,14 +184,14 @@ version seems to be a bit messy if the graph becomes too large</p>
 </figure>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h2>
 <p>Install with pip</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">modelgraph</span>
 </pre></div>
 </div>
 </section>
 <section id="gui">
-<h2>GUI<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h2>
+<h2>GUI<a class="headerlink" href="#gui" title="Permalink to this heading">¶</a></h2>
 <p>There is also a graphical user interface. To use this you need to
 install <code class="docutils literal notranslate"><span class="pre">streamlit</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">streamlit</span>
@@ -208,12 +209,12 @@ line argument e.g</p>
 </figure>
 </section>
 <section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">¶</a></h2>
 <p>Documentation is hosted at
 <a class="reference external" href="http://computationalphysiology.github.io/modelgraph">http://computationalphysiology.github.io/modelgraph</a>.</p>
 </section>
 <section id="automated-test">
-<h2>Automated test<a class="headerlink" href="#automated-test" title="Permalink to this headline">¶</a></h2>
+<h2>Automated test<a class="headerlink" href="#automated-test" title="Permalink to this heading">¶</a></h2>
 <p>Tests are provided in the folder
 <a class="reference external" href="https://github.com/ComputationalPhysiology/modelgraph/tree/main/tests">tests</a>.
 You can run the tests with pytest</p>
@@ -222,18 +223,18 @@ You can run the tests with pytest</p>
 </div>
 </section>
 <section id="contributing">
-<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading">¶</a></h2>
 <p>See <a class="reference external" href="https://computationalphysiology.github.io/simcardems/CONTRIBUTING.html">the contributing
 section</a></p>
 </section>
 <section id="authors">
-<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Henrik Finsberg (<a class="reference external" href="mailto:henriknf&#37;&#52;&#48;simula&#46;no">henriknf<span>&#64;</span>simula<span>&#46;</span>no</a>)</p></li>
 </ul>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading">¶</a></h2>
 <p>MIT</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
@@ -248,7 +249,7 @@ section</a></p>
 </section>
 </section>
 <section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
@@ -267,7 +268,7 @@ section</a></p>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2022, Henrik Finsberg.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
 </div>
             </div>
           </div>
