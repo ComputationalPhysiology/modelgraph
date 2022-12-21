@@ -21,6 +21,7 @@ jobs:
         run: |
           python -m pytest
       - name: Coverage report
+        if: github.ref == 'refs/heads/main'
         uses: codecov/codecov-action@v3
         with:
           fail_ci_if_error: true
