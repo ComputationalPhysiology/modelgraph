@@ -27,7 +27,6 @@ def get_graph():
 
 
 def dependency_graph():
-
     st.title("Dendencency graph")
 
     graph = get_graph()
