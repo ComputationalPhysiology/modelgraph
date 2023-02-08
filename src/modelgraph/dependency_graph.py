@@ -8,7 +8,6 @@ import networkx as nx
 
 
 def _add_dependents_recursively(func: Callable[[str], set[str]], arg: str) -> set[str]:
-
     deps = set()
 
     def add_deps(root):
@@ -25,7 +24,6 @@ def _build_graph(func: Callable[[str], set[str]], arg: str) -> nx.DiGraph:
     G = nx.DiGraph()
 
     def build_graph(root):
-
         deps = func(root)
         for dep in deps:
             G.add_edge(root, dep)
@@ -53,10 +51,8 @@ class DependencyGraph:
     def _load_dependents(self):
         """Load dependencies from ode"""
         for intermediate in self._ode.intermediates + self._ode.state_expressions:
-
             self._dependents[intermediate.name] = set()
             for dependent in intermediate.dependent:
-
                 if dependent.is_Symbol:
                     depname = str(dependent)
 
