@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>modelgraph.dependency_graph</title>
+    
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../_static/theme-vendors.js"></script> -->
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../index.html" class="home-link">
+    
+      <span class="site-name">modelgraph</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#license">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../hodgkin_huxley.html" class="reference internal ">Demo</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../modules.html" class="reference internal ">modelgraph</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../index.html">Module code</a> &raquo;</li>
+    
+    <li>modelgraph.dependency_graph</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <h1>Source code for modelgraph.dependency_graph</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+
+<span class="kn">import</span> <span class="nn">gotran</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+
+<span class="k">def</span> <span class="nf">_add_dependents_recursively</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="n">arg</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">deps</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">add_deps</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+        <span class="n">dependents</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dependent</span> <span class="ow">in</span> <span class="n">dependents</span><span class="p">:</span>
+            <span class="n">deps</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dependent</span><span class="p">)</span>
+            <span class="n">add_deps</span><span class="p">(</span><span class="n">dependent</span><span class="p">)</span>
+
+    <span class="n">add_deps</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">deps</span>
+
+
+<span class="k">def</span> <span class="nf">_build_graph</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="n">arg</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">:</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">build_graph</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+        <span class="n">deps</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">deps</span><span class="p">:</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">dep</span><span class="p">)</span>
+            <span class="n">build_graph</span><span class="p">(</span><span class="n">dep</span><span class="p">)</span>
+
+    <span class="n">build_graph</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">G</span>
+
+
+<div class="viewcode-block" id="DependencyGraph">
+<a class="viewcode-back" href="../../modelgraph.html#modelgraph.dependency_graph.DependencyGraph">[docs]</a>
+<span class="k">class</span> <span class="nc">DependencyGraph</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ode</span><span class="p">:</span> <span class="n">gotran</span><span class="o">.</span><span class="n">ODE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Intialize dependency graph</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ode : gotran.ODE</span>
+<span class="sd">            The model represented as a `gotran.ODE`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dependents</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inv_dependents</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ode</span> <span class="o">=</span> <span class="n">ode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_dependents</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_load_dependents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load dependencies from ode&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">intermediate</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ode</span><span class="o">.</span><span class="n">intermediates</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ode</span><span class="o">.</span><span class="n">state_expressions</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dependents</span><span class="p">[</span><span class="n">intermediate</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">dependent</span> <span class="ow">in</span> <span class="n">intermediate</span><span class="o">.</span><span class="n">dependent</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">dependent</span><span class="o">.</span><span class="n">is_Symbol</span><span class="p">:</span>
+                    <span class="n">depname</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">dependent</span><span class="p">)</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">depname</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dependent</span><span class="p">))</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">_dependents</span><span class="p">[</span><span class="n">intermediate</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">depname</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_inv_dependents</span><span class="p">[</span><span class="n">depname</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">intermediate</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ode</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dependent_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return all the names of the expressions having dependencies</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list[str]</span>
+<span class="sd">            List of names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dependents</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">inv_dependent_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return all the names of the expressions that other expressions depdens on</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list[str]</span>
+<span class="sd">            List of names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inv_dependents</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">gotran</span><span class="o">.</span><span class="n">ODE</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the ode&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ode</span>
+
+<div class="viewcode-block" id="DependencyGraph.dependents">
+<a class="viewcode-back" href="../../modelgraph.html#modelgraph.dependency_graph.DependencyGraph.dependents">[docs]</a>
+    <span class="k">def</span> <span class="nf">dependents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">direct</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Given a name of an expression return its dependencies</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            Name of the expression</span>
+<span class="sd">        direct : bool, optional</span>
+<span class="sd">            Whether to return only direct depenencies or also include</span>
+<span class="sd">            indirect dependencies, by default True</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        set[str]</span>
+<span class="sd">            Set of names of all dependencies</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">direct</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dependents</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="c1"># Grab all decendents recursively</span>
+        <span class="k">return</span> <span class="n">_add_dependents_recursively</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dependents</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DependencyGraph.inv_dependents">
+<a class="viewcode-back" href="../../modelgraph.html#modelgraph.dependency_graph.DependencyGraph.inv_dependents">[docs]</a>
+    <span class="k">def</span> <span class="nf">inv_dependents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">direct</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Given a name of an expression return all expressions</span>
+<span class="sd">        that depends on it</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            Name of the expression</span>
+<span class="sd">        direct : bool, optional</span>
+<span class="sd">            Whether to return only direct depenencies or also include</span>
+<span class="sd">            indirect dependencies, by default True</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        set[str]</span>
+<span class="sd">            Set of names of all dependencies</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">direct</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inv_dependents</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="c1"># Grab all decendents recursively</span>
+        <span class="k">return</span> <span class="n">_add_dependents_recursively</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inv_dependents</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DependencyGraph.dependency_graph">
+<a class="viewcode-back" href="../../modelgraph.html#modelgraph.dependency_graph.DependencyGraph.dependency_graph">[docs]</a>
+    <span class="k">def</span> <span class="nf">dependency_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the dependency graph where each node reperesents</span>
+<span class="sd">        an expression and a directed edge means that there is</span>
+<span class="sd">        a dependency.</span>
+
+<span class="sd">        There will be a directed edge from the root node to</span>
+<span class="sd">        another node if the root node is a dependency of the</span>
+<span class="sd">        other node.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            Name of the root node</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        nx.DiGraph</span>
+<span class="sd">            A directed dependency graph</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_build_graph</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dependents</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DependencyGraph.inv_dependency_graph">
+<a class="viewcode-back" href="../../modelgraph.html#modelgraph.dependency_graph.DependencyGraph.inv_dependency_graph">[docs]</a>
+    <span class="k">def</span> <span class="nf">inv_dependency_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the dependency graph where each node reperesents</span>
+<span class="sd">        an expression and a directed edge means that there is</span>
+<span class="sd">        a dependency.</span>
+
+<span class="sd">        There will be a directed edge from the root node to</span>
+<span class="sd">        another node if the root node depends on the other node.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            Name of the root node</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        nx.DiGraph</span>
+<span class="sd">            A directed dependency graph</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_build_graph</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inv_dependents</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2022, Henrik Finsberg.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>
