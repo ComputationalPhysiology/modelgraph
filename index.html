@@ -137,8 +137,8 @@ and since <code class="docutils literal notranslate"><span class="pre">dV_dt</sp
 the parameter <code class="docutils literal notranslate"><span class="pre">g_Na</span></code>.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">modelgraph</span></code> we can visualize this dependency using the following
 code snippet</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modelgraph</span> <span class="kn">import</span> <span class="n">DependencyGraph</span>
-<span class="kn">import</span> <span class="nn">gotran</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">modelgraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">DependencyGraph</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gotran</span>
 
 <span class="c1"># Load ode using gotran</span>
 <span class="n">ode</span> <span class="o">=</span> <span class="n">gotran</span><span class="o">.</span><span class="n">load_ode</span><span class="p">(</span><span class="s2">&quot;hodgkin_huxley_squid_axon_model_1952_original.ode&quot;</span><span class="p">)</span>
@@ -147,7 +147,7 @@ code snippet</p>
 <span class="c1"># Get the components that depends on g_Na (we call this inverse dependents)</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">inv_dependency_graph</span><span class="p">(</span><span class="s2">&quot;g_Na&quot;</span><span class="p">)</span>
 <span class="c1"># Visualize using matplotlib (python -m pip install matplotlib)</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;g_Na_mpl.png&quot;</span><span class="p">)</span>
 </pre></div>
