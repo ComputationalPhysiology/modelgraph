@@ -80,7 +80,7 @@ class DependencyGraph:
 
     def _load_dependents(self):
         """Load dependencies from ode"""
-        for intermediate in self._ode.intermediates + self._ode.state_expressions:
+        for intermediate in self.ode.intermediates + self.ode.state_expressions:
             self._dependents[intermediate.name] = set()
             for dependent in intermediate.dependent:
                 if dependent.is_Symbol:
