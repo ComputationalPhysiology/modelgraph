@@ -11,8 +11,10 @@ except ImportError:
     print("Please install streamlit - python3 -m pip install streamlit")
     exit(1)
 
-
-import gotran
+try:
+    import gotranx as gotran
+except ImportError:
+    import gotran
 
 from modelgraph import DependencyGraph
 
@@ -20,7 +22,7 @@ from modelgraph import DependencyGraph
 here = Path(__file__).absolute().parent
 
 
-@st.cache(allow_output_mutation=True)
+@st.cache_data
 def get_graph():
     ode = gotran.load_ode(os.getenv("MODELGRAPH_FILENAME"))
     return DependencyGraph(ode)
@@ -52,26 +54,28 @@ def inv_dependency_graph():
         st.image(temp.name)
 
 
-# Page settings
-st.set_page_config(page_title="modelgraph")
+if __name__ == "__main__":
+    # Page settings
+    st.set_page_config(page_title="modelgraph")
 
-# Sidebar settings
-pages = {
-    "Dendencency graph": dependency_graph,
-    "Inverse dendencency graph": inv_dependency_graph,
-}
+    # Sidebar settings
+    pages = {
+        "Dendencency graph": dependency_graph,
+        "Inverse dendencency graph": inv_dependency_graph,
+    }
 
-st.sidebar.title("modelgraph")
+    st.sidebar.title("modelgraph")
 
-# Radio buttons to select desired option
-page = st.sidebar.radio("", tuple(pages.keys()))
+    # Radio buttons to select desired option
+    keys = list(pages.keys())
+    page = st.sidebar.radio("Select a page", keys)
 
-pages[page]()
+    pages[page]()
 
-# About
-st.sidebar.markdown(
-    """
-- [Source code](https://github.com/ComputationalPhysiology/modelgraph)
-- [Documentation](https://computationalphysiology.github.io/modelgraph/)
-""",
-)
+    # About
+    st.sidebar.markdown(
+        """
+    - [Source code](https://github.com/ComputationalPhysiology/modelgraph)
+    - [Documentation](https://computationalphysiology.github.io/modelgraph/)
+    """,
+    )
