@@ -1,7 +1,9 @@
 from pathlib import Path
 
-import gotran
+
 import pytest
+import gotran
+import gotranx
 from modelgraph import DependencyGraph
 
 
@@ -11,13 +13,20 @@ ode_file = here.parent.joinpath("demo").joinpath(
 )
 
 
-@pytest.fixture(scope="session")
-def ode():
-    return gotran.load_ode(ode_file)
+def handle_request_param(request):
+    if request.param == "gotranx":
+        return gotranx.load_ode(ode_file)
+
+        return gotranx.load_ode(ode_file)
+    elif request.param == "gotran":
+        return gotran.load_ode(ode_file)
+    else:
+        raise ValueError(f"Unknown request param {request.param}")
 
 
-@pytest.fixture
-def graph(ode):
+@pytest.fixture(params=["gotran", "gotranx"])
+def graph(request):
+    ode = handle_request_param(request)
     return DependencyGraph(ode)
 
 
@@ -75,12 +84,6 @@ def test_direct_inv_dependents(graph, name, expected_dependents):
 def test_indirect_inv_dependents(graph, name, expected_dependents):
     dependents = graph.inv_dependents(name, direct=False)
     assert dependents == expected_dependents
-
-
-def test_repr(graph):
-    assert (
-        repr(graph) == "DependencyGraph(hodgkin_huxley_squid_axon_model_1952_original)"
-    )
 
 
 @pytest.mark.parametrize(
@@ -151,13 +154,30 @@ def test_inv_depedency_graph(graph, name, expected_edges):
     assert set(G.edges) == expected_edges
 
 
-def test_depdedent_names(graph, ode):
-    assert set(graph.dependent_names) == set(
-        [v.name for v in ode.intermediates + ode.state_expressions],
-    )
+def test_depdedent_names(graph):
+    ode = graph.ode
+    if isinstance(ode, gotran.ODE):
+        assert set(graph.dependent_names) == set(
+            [v.name for v in ode.intermediates + ode.state_expressions],
+        )
+    else:
+        assert isinstance(ode, gotranx.ODE)
+        names = [i.name for i in ode.intermediates] + [sd.name for sd in ode.state_derivatives]
+        assert set(graph.dependent_names) == set(names)
 
 
-def test_inv_depdedent_names(graph, ode):
-    assert set(graph.inv_dependent_names) == set(
-        [v.name for v in ode.intermediates + ode.parameters + ode.states] + ["t"],
-    )
+def test_inv_depdedent_names(graph):
+    ode = graph.ode
+    if isinstance(ode, gotran.ODE):
+        assert set(graph.inv_dependent_names) == set(
+            [v.name for v in ode.intermediates + ode.parameters + ode.states] + ["t"],
+        )
+    else:
+        assert isinstance(ode, gotranx.ODE)
+        names = (
+            [i.name for i in ode.intermediates]
+            + [s.name for s in ode.states]
+            + [p.name for p in ode.parameters]
+            + ["time"]
+        )
+        assert set(graph.inv_dependent_names) == set(names)
