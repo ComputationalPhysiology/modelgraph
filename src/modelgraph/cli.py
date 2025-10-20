@@ -24,10 +24,26 @@ here = Path(__file__).absolute().parent
 def main(filename):
     os.environ["MODELGRAPH_FILENAME"] = filename
     # Make sure we can import the required packages
-    from . import gui  # noqa: F401
     from pathlib import Path
-
-    gui_path = Path(__file__).parent.joinpath("gui.py")
+    import sys
     import subprocess as sp
 
-    sp.run(["streamlit", "run", gui_path.as_posix()])
+    try:
+        import streamlit  # noqa: F401
+    except ImportError:
+        print("Please install streamlit - python3 -m pip install streamlit")
+        exit(1)
+
+    try:
+        import gotranx  # noqa: F401
+    except ImportError:
+        try:
+            import gotran  # noqa: F401
+        except ImportError:
+            print("Please install gotranx or gotran - python3 -m pip install gotranx")
+            exit(1)
+
+    gui_path = Path(__file__).parent.joinpath("gui.py")
+    args = [sys.executable, "-m", "streamlit", "run", gui_path.as_posix()]
+
+    sp.run(args)
