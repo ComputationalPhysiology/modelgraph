@@ -1,4 +1,5 @@
-
+.DS_Store
+docs/source/hodgkin_huxley_gotranx.md
 demo/*.png
 demo/*.dot
 docs/source/hodgkin_huxley.md

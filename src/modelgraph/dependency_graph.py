@@ -1,9 +1,8 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from typing import Callable
+from typing import Callable, Protocol, Sequence
 
-import gotran
 import networkx as nx
 
 
@@ -33,24 +32,55 @@ def _build_graph(func: Callable[[str], set[str]], arg: str) -> nx.DiGraph:
     return G
 
 
+class GotranDependent(Protocol):
+    is_Symbol: bool
+
+    def __str__(self) -> str: ...
+
+
+class GotranVariable(Protocol):
+    name: str
+    dependent: Sequence[GotranDependent]
+
+
+class GotranODE(Protocol):
+    intermediates: Sequence[GotranVariable]
+    state_expressions: Sequence[GotranVariable]
+
+
+class GotranxODE(Protocol):
+    def dependents(self) -> dict[str, set[str]]: ...
+
+
 class DependencyGraph:
-    def __init__(self, ode: gotran.ODE) -> None:
+    def __init__(self, ode: GotranxODE | GotranODE) -> None:
         """Intialize dependency graph
 
         Parameters
         ----------
-        ode : gotran.ODE
-            The model represented as a `gotran.ODE`
+        ode : GotranxODE | GotranODE
+            The model represented as a `gotranx.ODE` or `gotran.ODE` object
         """
 
         self._dependents: dict[str, set[str]] = {}
         self._inv_dependents: dict[str, set[str]] = defaultdict(set)
-        self._ode = ode
-        self._load_dependents()
+        self.ode = ode
+
+        if hasattr(ode, "dependents"):
+            deps = ode.dependents()
+            self._dependents = deps
+            for name in self._dependents:
+                for dep in self._dependents[name]:
+                    self._inv_dependents[dep].add(name)
+
+            self._dependents = self._inv_dependents
+            self._inv_dependents = deps
+        else:
+            self._load_dependents()
 
     def _load_dependents(self):
         """Load dependencies from ode"""
-        for intermediate in self._ode.intermediates + self._ode.state_expressions:
+        for intermediate in self.ode.intermediates + self.ode.state_expressions:
             self._dependents[intermediate.name] = set()
             for dependent in intermediate.dependent:
                 if dependent.is_Symbol:
@@ -86,11 +116,6 @@ class DependencyGraph:
             List of names
         """
         return list(self._inv_dependents.keys())
-
-    @property
-    def ode(self) -> gotran.ODE:
-        """Return the ode"""
-        return self._ode
 
     def dependents(self, name: str, direct: bool = True) -> set[str]:
         """Given a name of an expression return its dependencies

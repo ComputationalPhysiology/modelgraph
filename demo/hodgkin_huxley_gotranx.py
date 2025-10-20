@@ -1,4 +1,4 @@
-# # Demo gotran
+# # Demo gotranx
 #
 # In this demo we will demonstrate how you can use the python API to visualize the dependencies
 # in the Hodgkin Huxley model  of the squid axon from 1952. This model is taken
@@ -7,14 +7,14 @@
 #
 # First we make the necessary imports
 
-import gotran
+import gotranx
 import matplotlib.pyplot as plt
 import networkx as nx
 from modelgraph import DependencyGraph
 
 # and load the ode file
 
-ode = gotran.load_ode("hodgkin_huxley_squid_axon_model_1952_original.ode")
+ode = gotranx.load_ode("hodgkin_huxley_squid_axon_model_1952_original.ode")
 
 # Next we build the dependency graph
 
@@ -27,14 +27,14 @@ G_g_Na = graph.inv_dependency_graph("g_Na")
 # We plot this using `matplotlib`
 
 nx.draw(G_g_Na, with_labels=True, font_size=10, node_size=2000)
-plt.savefig("g_Na_mpl.png")
+plt.savefig("g_Na_mpl_gotranx.png")
 
 # ![_](_static/g_Na_mpl.png)
 #
 # and using `pydot`
 
 P_g_Na = nx.nx_pydot.to_pydot(G_g_Na)
-P_g_Na.write_png("g_Na_pydot.png")
+P_g_Na.write_png("g_Na_pydot_gotranx.png")
 
 # ![_](_static/g_Na_pydot.png)
 #
@@ -46,6 +46,6 @@ G_dV_dt = graph.dependency_graph("dV_dt")
 #
 
 P_dV_dt = nx.nx_pydot.to_pydot(G_dV_dt)
-P_dV_dt.write_png("dV_dt_pydot.png")
+P_dV_dt.write_png("dV_dt_pydot_gotranx.png")
 
 # ![_](_static/dV_dt_pydot.png)

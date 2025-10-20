@@ -69,6 +69,7 @@ docs: ## generate Sphinx HTML documentation, including API docs
 	rm -f docs/source/modelgraph.rst´
 	rm -f docs/source/modules.rst
 	jupytext demo/hodgkin_huxley.py -o docs/source/hodgkin_huxley.md
+	jupytext demo/hodgkin_huxley_gotranx.py -o docs/source/hodgkin_huxley_gotranx.md
 	sphinx-apidoc -o docs/source src/modelgraph
 	cd docs && make html
 
