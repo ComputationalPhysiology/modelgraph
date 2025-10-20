@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <title>Demo gotran</title>
+      <title>Demo gotranx</title>
     
           <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
           <link rel="stylesheet" href="_static/theme.css " type="text/css" />
@@ -21,8 +21,8 @@
     
   <link rel="index" title="Index" href="genindex.html" />
   <link rel="search" title="Search" href="search.html" />
-  <link rel="next" title="Demo gotranx" href="hodgkin_huxley_gotranx.html" />
-  <link rel="prev" title="modelgraph" href="index.html" /> 
+  <link rel="next" title="modelgraph" href="modules.html" />
+  <link rel="prev" title="Demo gotran" href="hodgkin_huxley.html" /> 
   </head>
 
   <body>
@@ -73,26 +73,26 @@
       </p>
       <ul class="current">
         
+          <li class="toctree-l1 ">
+            
+              <a href="hodgkin_huxley.html" class="reference internal ">Demo gotran</a>
+            
+
+            
+          </li>
+
+        
           <li class="toctree-l1 current">
             
-              <a href="#" class="reference internal current">Demo gotran</a>
+              <a href="#" class="reference internal current">Demo gotranx</a>
             
 
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#demo-gotran" class="reference internal">Demo gotran</a></li>
+                  <li class="toctree-l2"><a href="#demo-gotranx" class="reference internal">Demo gotranx</a></li>
                 
               </ul>
-            
-          </li>
-
-        
-          <li class="toctree-l1 ">
-            
-              <a href="hodgkin_huxley_gotranx.html" class="reference internal ">Demo gotranx</a>
-            
-
             
           </li>
 
@@ -118,18 +118,18 @@
   <ul class="breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
     
-    <li>Demo gotran</li>
+    <li>Demo gotranx</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="index.html"
-       title="previous chapter">← modelgraph</a>
+    <a href="hodgkin_huxley.html"
+       title="previous chapter">← Demo gotran</a>
   </li>
   <li class="next">
-    <a href="hodgkin_huxley_gotranx.html"
-       title="next chapter">Demo gotranx →</a>
+    <a href="modules.html"
+       title="next chapter">modelgraph →</a>
   </li>
 </ul>
   
@@ -137,21 +137,21 @@
 <hr>
           <div class="content" role="main" v-pre>
             
-  <section id="demo-gotran">
-<h1>Demo gotran<a class="headerlink" href="#demo-gotran" title="Link to this heading">¶</a></h1>
+  <section id="demo-gotranx">
+<h1>Demo gotranx<a class="headerlink" href="#demo-gotranx" title="Link to this heading">¶</a></h1>
 <p>In this demo we will demonstrate how you can use the python API to visualize the dependencies
 in the Hodgkin Huxley model  of the squid axon from 1952. This model is taken
 from <a class="reference external" href="https://models.cellml.org/workspace/hodgkin_huxley_1952">https://models.cellml.org/workspace/hodgkin_huxley_1952</a> and converted to a
 gotran <code class="docutils literal notranslate"><span class="pre">.ode</span></code> file using <code class="docutils literal notranslate"><span class="pre">gotran</span></code> and the <code class="docutils literal notranslate"><span class="pre">cellml2gotran</span></code> script</p>
 <p>First we make the necessary imports</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gotran</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gotranx</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">modelgraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">DependencyGraph</span>
 </pre></div>
 </div>
 <p>and load the ode file</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ode</span> <span class="o">=</span> <span class="n">gotran</span><span class="o">.</span><span class="n">load_ode</span><span class="p">(</span><span class="s2">&quot;hodgkin_huxley_squid_axon_model_1952_original.ode&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ode</span> <span class="o">=</span> <span class="n">gotranx</span><span class="o">.</span><span class="n">load_ode</span><span class="p">(</span><span class="s2">&quot;hodgkin_huxley_squid_axon_model_1952_original.ode&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Next we build the dependency graph</p>
@@ -164,13 +164,13 @@ gotran <code class="docutils literal notranslate"><span class="pre">.ode</span><
 </div>
 <p>We plot this using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G_g_Na</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;g_Na_mpl.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;g_Na_mpl_gotranx.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_" src="_images/g_Na_mpl.png" /></p>
 <p>and using <code class="docutils literal notranslate"><span class="pre">pydot</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">P_g_Na</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">nx_pydot</span><span class="o">.</span><span class="n">to_pydot</span><span class="p">(</span><span class="n">G_g_Na</span><span class="p">)</span>
-<span class="n">P_g_Na</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s2">&quot;g_Na_pydot.png&quot;</span><span class="p">)</span>
+<span class="n">P_g_Na</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s2">&quot;g_Na_pydot_gotranx.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_" src="_images/g_Na_pydot.png" /></p>
@@ -182,7 +182,7 @@ gotran <code class="docutils literal notranslate"><span class="pre">.ode</span><
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">P_dV_dt</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">nx_pydot</span><span class="o">.</span><span class="n">to_pydot</span><span class="p">(</span><span class="n">G_dV_dt</span><span class="p">)</span>
-<span class="n">P_dV_dt</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s2">&quot;dV_dt_pydot.png&quot;</span><span class="p">)</span>
+<span class="n">P_dV_dt</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s2">&quot;dV_dt_pydot_gotranx.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_" src="_images/dV_dt_pydot.png" /></p>
@@ -193,12 +193,12 @@ gotran <code class="docutils literal notranslate"><span class="pre">.ode</span><
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="index.html"
-       title="previous chapter">← modelgraph</a>
+    <a href="hodgkin_huxley.html"
+       title="previous chapter">← Demo gotran</a>
   </li>
   <li class="next">
-    <a href="hodgkin_huxley_gotranx.html"
-       title="next chapter">Demo gotranx →</a>
+    <a href="modules.html"
+       title="next chapter">modelgraph →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2022, Henrik Finsberg.

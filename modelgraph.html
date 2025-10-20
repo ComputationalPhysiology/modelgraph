@@ -11,7 +11,7 @@
       
       <!-- sphinx script_files -->
         <script src="_static/documentation_options.js?v=01f34227"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
@@ -74,7 +74,16 @@
         
           <li class="toctree-l1 ">
             
-              <a href="hodgkin_huxley.html" class="reference internal ">Demo</a>
+              <a href="hodgkin_huxley.html" class="reference internal ">Demo gotran</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="hodgkin_huxley_gotranx.html" class="reference internal ">Demo gotranx</a>
             
 
             
@@ -131,7 +140,7 @@
 <span id="modelgraph-dependency-graph-module"></span><h2>modelgraph.dependency_graph module<a class="headerlink" href="#module-modelgraph.dependency_graph" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ODE</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#modelgraph.dependency_graph.GotranxODE" title="modelgraph.dependency_graph.GotranxODE"><span class="pre">GotranxODE</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelgraph.dependency_graph.GotranODE" title="modelgraph.dependency_graph.GotranODE"><span class="pre">GotranODE</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.dependency_graph">
@@ -157,7 +166,7 @@ other node.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.dependent_names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependent_names" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependent_names" title="Link to this definition">¶</a></dt>
 <dd><p>Return all the names of the expressions having dependencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -213,7 +222,7 @@ another node if the root node depends on the other node.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.inv_dependent_names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inv_dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependent_names" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inv_dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependent_names" title="Link to this definition">¶</a></dt>
 <dd><p>Return all the names of the expressions that other expressions depdens on</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -247,11 +256,59 @@ indirect dependencies, by default True</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py property">
-<dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.ode">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ODE</span></em><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.ode" title="Link to this definition">¶</a></dt>
-<dd><p>Return the ode</p>
 </dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranDependent">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranDependent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranDependent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranDependent" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranDependent.is_Symbol">
+<span class="sig-name descname"><span class="pre">is_Symbol</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#modelgraph.dependency_graph.GotranDependent.is_Symbol" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranODE">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranODE" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranODE.intermediates">
+<span class="sig-name descname"><span class="pre">intermediates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelgraph.dependency_graph.GotranVariable" title="modelgraph.dependency_graph.GotranVariable"><span class="pre">GotranVariable</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.GotranODE.intermediates" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranODE.state_expressions">
+<span class="sig-name descname"><span class="pre">state_expressions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelgraph.dependency_graph.GotranVariable" title="modelgraph.dependency_graph.GotranVariable"><span class="pre">GotranVariable</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.GotranODE.state_expressions" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranVariable">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranVariable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranVariable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranVariable" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranVariable.dependent">
+<span class="sig-name descname"><span class="pre">dependent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelgraph.dependency_graph.GotranDependent" title="modelgraph.dependency_graph.GotranDependent"><span class="pre">GotranDependent</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.GotranVariable.dependent" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranVariable.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#modelgraph.dependency_graph.GotranVariable.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranxODE">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranxODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranxODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranxODE" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranxODE.dependents">
+<span class="sig-name descname"><span class="pre">dependents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranxODE.dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranxODE.dependents" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -260,7 +317,7 @@ indirect dependencies, by default True</p></li>
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-modelgraph" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ODE</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#modelgraph.dependency_graph.GotranxODE" title="modelgraph.dependency_graph.GotranxODE"><span class="pre">GotranxODE</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelgraph.dependency_graph.GotranODE" title="modelgraph.dependency_graph.GotranODE"><span class="pre">GotranODE</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph.dependency_graph">
@@ -286,7 +343,7 @@ other node.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph.dependent_names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.DependencyGraph.dependent_names" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.DependencyGraph.dependent_names" title="Link to this definition">¶</a></dt>
 <dd><p>Return all the names of the expressions having dependencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -342,7 +399,7 @@ another node if the root node depends on the other node.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph.inv_dependent_names">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inv_dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.DependencyGraph.inv_dependent_names" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inv_dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.DependencyGraph.inv_dependent_names" title="Link to this definition">¶</a></dt>
 <dd><p>Return all the names of the expressions that other expressions depdens on</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -376,12 +433,6 @@ indirect dependencies, by default True</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py property">
-<dt class="sig sig-object py" id="modelgraph.DependencyGraph.ode">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ODE</span></em><a class="headerlink" href="#modelgraph.DependencyGraph.ode" title="Link to this definition">¶</a></dt>
-<dd><p>Return the ode</p>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -398,7 +449,7 @@ indirect dependencies, by default True</p></li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2022, Henrik Finsberg.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.4.7 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
 </div>
             </div>
           </div>

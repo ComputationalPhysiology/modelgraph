@@ -11,7 +11,7 @@
       
       <!-- sphinx script_files -->
         <script src="_static/documentation_options.js?v=01f34227"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
@@ -22,7 +22,7 @@
   <link rel="index" title="Index" href="genindex.html" />
   <link rel="search" title="Search" href="search.html" />
   <link rel="next" title="modelgraph package" href="modelgraph.html" />
-  <link rel="prev" title="Demo" href="hodgkin_huxley.html" /> 
+  <link rel="prev" title="Demo gotranx" href="hodgkin_huxley_gotranx.html" /> 
   </head>
 
   <body>
@@ -75,7 +75,16 @@
         
           <li class="toctree-l1 ">
             
-              <a href="hodgkin_huxley.html" class="reference internal ">Demo</a>
+              <a href="hodgkin_huxley.html" class="reference internal ">Demo gotran</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="hodgkin_huxley_gotranx.html" class="reference internal ">Demo gotranx</a>
             
 
             
@@ -115,8 +124,8 @@
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="hodgkin_huxley.html"
-       title="previous chapter">← Demo</a>
+    <a href="hodgkin_huxley_gotranx.html"
+       title="previous chapter">← Demo gotranx</a>
   </li>
   <li class="next">
     <a href="modelgraph.html"
@@ -143,7 +152,24 @@
 <li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.DependencyGraph.inv_dependency_graph"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependency_graph()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.DependencyGraph.inv_dependent_names"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependent_names</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.DependencyGraph.inv_dependents"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependents()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.DependencyGraph.ode"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.ode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.GotranDependent"><code class="docutils literal notranslate"><span class="pre">GotranDependent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.GotranDependent.is_Symbol"><code class="docutils literal notranslate"><span class="pre">GotranDependent.is_Symbol</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.GotranODE"><code class="docutils literal notranslate"><span class="pre">GotranODE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.GotranODE.intermediates"><code class="docutils literal notranslate"><span class="pre">GotranODE.intermediates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.GotranODE.state_expressions"><code class="docutils literal notranslate"><span class="pre">GotranODE.state_expressions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.GotranVariable"><code class="docutils literal notranslate"><span class="pre">GotranVariable</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.GotranVariable.dependent"><code class="docutils literal notranslate"><span class="pre">GotranVariable.dependent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.GotranVariable.name"><code class="docutils literal notranslate"><span class="pre">GotranVariable.name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.GotranxODE"><code class="docutils literal notranslate"><span class="pre">GotranxODE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.dependency_graph.GotranxODE.dependents"><code class="docutils literal notranslate"><span class="pre">GotranxODE.dependents()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -156,7 +182,6 @@
 <li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.DependencyGraph.inv_dependency_graph"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependency_graph()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.DependencyGraph.inv_dependent_names"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependent_names</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.DependencyGraph.inv_dependents"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependents()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelgraph.html#modelgraph.DependencyGraph.ode"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.ode</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -172,8 +197,8 @@
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="hodgkin_huxley.html"
-       title="previous chapter">← Demo</a>
+    <a href="hodgkin_huxley_gotranx.html"
+       title="previous chapter">← Demo gotranx</a>
   </li>
   <li class="next">
     <a href="modelgraph.html"
@@ -182,7 +207,7 @@
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2022, Henrik Finsberg.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.4.7 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
 </div>
             </div>
           </div>

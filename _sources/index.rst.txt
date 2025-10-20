@@ -1,4 +1,4 @@
-|codecov| |CI| |github pages| |pre-commit.ci status|
+|CI| |github pages| |pre-commit.ci status|
 
 modelgraph
 ==========
@@ -29,10 +29,10 @@ code snippet
 .. code:: python
 
    from modelgraph import DependencyGraph
-   import gotran
+   import gotranx
 
    # Load ode using gotran
-   ode = gotran.load_ode("hodgkin_huxley_squid_axon_model_1952_original.ode")
+   ode = gotranx.load_ode("hodgkin_huxley_squid_axon_model_1952_original.ode")
    # Build dependency graph
    graph = DependencyGraph(ode)
    # Get the components that depends on g_Na (we call this inverse dependents)
@@ -139,8 +139,6 @@ License
 
 MIT
 
-.. |codecov| image:: https://codecov.io/gh/ComputationalPhysiology/modelgraph/branch/main/graph/badge.svg?token=C4YKKMJ4H8
-   :target: https://codecov.io/gh/ComputationalPhysiology/modelgraph
 .. |CI| image:: https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/main.yml/badge.svg
    :target: https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/main.yml
 .. |github pages| image:: https://github.com/ComputationalPhysiology/modelgraph/actions/workflows/github-pages.yml/badge.svg
@@ -154,6 +152,7 @@ MIT
    :caption: Contents:
 
    hodgkin_huxley
+   hodgkin_huxley_gotranx
    modules
 
 
