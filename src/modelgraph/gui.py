@@ -41,19 +41,16 @@ def dependency_graph():
     suffix = st.selectbox("Select output format", (".png", ".svg"))
 
     with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as temp:
-
         if suffix == ".png":
             P.write_png(temp.name)
             st.image(temp.name)
 
         elif suffix == ".svg":
-
             P.write_svg(temp.name)
 
             with open(temp.name, "rb") as f:
                 svg_bytes = f.read()
 
-            
             b64 = base64.b64encode(svg_bytes).decode("utf-8")
 
             html = f"""
@@ -64,8 +61,6 @@ def dependency_graph():
             """
 
             st.markdown(html, unsafe_allow_html=True)
-
-
 
 
 def inv_dependency_graph():
@@ -79,19 +74,16 @@ def inv_dependency_graph():
     suffix = st.selectbox("Select output format", (".png", ".svg"))
 
     with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as temp:
-
         if suffix == ".png":
             P.write_png(temp.name)
             st.image(temp.name)
 
         elif suffix == ".svg":
-
             P.write_svg(temp.name)
 
             with open(temp.name, "rb") as f:
                 svg_bytes = f.read()
 
-            
             b64 = base64.b64encode(svg_bytes).decode("utf-8")
 
             html = f"""
@@ -102,7 +94,6 @@ def inv_dependency_graph():
             """
 
             st.markdown(html, unsafe_allow_html=True)
-
 
 
 if __name__ == "__main__":
