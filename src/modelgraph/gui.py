@@ -66,17 +66,43 @@ def dependency_graph():
             st.markdown(html, unsafe_allow_html=True)
 
 
+
+
 def inv_dependency_graph():
     st.title("Inverse dendencency graph")
-
     graph = get_graph()
 
     name = st.radio("Select parameter / expression", graph.inv_dependent_names)
     G = graph.inv_dependency_graph(name)
     P = nx.nx_pydot.to_pydot(G)
-    with tempfile.NamedTemporaryFile(suffix=".png") as temp:
-        P.write_png(temp.name)
-        st.image(temp.name)
+
+    suffix = st.selectbox("Select output format", (".png", ".svg"))
+
+    with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as temp:
+
+        if suffix == ".png":
+            P.write_png(temp.name)
+            st.image(temp.name)
+
+        elif suffix == ".svg":
+
+            P.write_svg(temp.name)
+
+            with open(temp.name, "rb") as f:
+                svg_bytes = f.read()
+
+            
+            b64 = base64.b64encode(svg_bytes).decode("utf-8")
+
+            html = f"""
+            <div style="text-align:center;">
+                <img src="data:image/svg+xml;base64,{b64}"
+                    style="max-width:800px; width:100%; height:auto;" />
+            </div>
+            """
+
+            st.markdown(html, unsafe_allow_html=True)
+
 
 
 if __name__ == "__main__":
