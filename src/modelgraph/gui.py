@@ -40,8 +40,8 @@ def get_graph():
 #         P.write_png(temp.name)
 #         st.image(temp.name)
 
-def dependency_graph():
 
+def dependency_graph():
     st.title("Dependency graph")
 
     graph = get_graph()
@@ -54,7 +54,6 @@ def dependency_graph():
     with tempfile.NamedTemporaryFile(suffix=".svg") as temp:
         P.write_svg(temp.name)
         st.image(temp.name, use_column_width=True)
-
 
 
 def inv_dependency_graph():
