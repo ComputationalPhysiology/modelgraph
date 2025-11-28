@@ -3,6 +3,7 @@ import tempfile
 from pathlib import Path
 
 import networkx as nx
+import base64
 
 
 try:
@@ -40,22 +41,21 @@ def dependency_graph():
     suffix = st.selectbox("Select output format", (".png", ".svg"))
 
     with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as temp:
+
         if suffix == ".png":
             P.write_png(temp.name)
             st.image(temp.name)
 
         elif suffix == ".svg":
-            # Write SVG file
+
             P.write_svg(temp.name)
 
-            # Read SVG properly (binary)
             with open(temp.name, "rb") as f:
                 svg_bytes = f.read()
 
-            # Convert to base64
+            
             b64 = base64.b64encode(svg_bytes).decode("utf-8")
 
-            # Render SVG safely with width limitation
             html = f"""
             <div style="text-align:center;">
                 <img src="data:image/svg+xml;base64,{b64}"
