@@ -28,17 +28,33 @@ def get_graph():
     return DependencyGraph(ode)
 
 
+# def dependency_graph():
+#     st.title("Dendencency graph")
+
+#     graph = get_graph()
+
+#     name = st.radio("Select parameter / expression", graph.dependent_names)
+#     G = graph.dependency_graph(name)
+#     P = nx.nx_pydot.to_pydot(G)
+#     with tempfile.NamedTemporaryFile(suffix=".png") as temp:
+#         P.write_png(temp.name)
+#         st.image(temp.name)
+
 def dependency_graph():
-    st.title("Dendencency graph")
+
+    st.title("Dependency graph")
 
     graph = get_graph()
 
     name = st.radio("Select parameter / expression", graph.dependent_names)
     G = graph.dependency_graph(name)
     P = nx.nx_pydot.to_pydot(G)
-    with tempfile.NamedTemporaryFile(suffix=".png") as temp:
-        P.write_png(temp.name)
-        st.image(temp.name)
+
+    # Export as SVG for perfect quality
+    with tempfile.NamedTemporaryFile(suffix=".svg") as temp:
+        P.write_svg(temp.name)
+        st.image(temp.name, use_column_width=True)
+
 
 
 def inv_dependency_graph():
