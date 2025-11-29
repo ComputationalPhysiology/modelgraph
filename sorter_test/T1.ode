@@ -1,0 +1,6 @@
+# Simple unsorted ODE file
+
+b = a + 5
+d = b + c
+a = 3
+c = a + 1
