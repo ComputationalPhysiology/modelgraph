@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 import click
+from .sorter import sort_and_write 
 
 try:
     from importlib.metadata import metadata
@@ -22,7 +23,9 @@ here = Path(__file__).absolute().parent
 @click.version_option(__version__, prog_name="modelgraph")
 @click.argument("filename", required=True, type=click.Path(exists=True))
 def main(filename):
-    os.environ["MODELGRAPH_FILENAME"] = filename
+    sorted_file = sort_and_write(filename) 
+    print(f"Using sorted ODE file: {sorted_file}")
+    os.environ["MODELGRAPH_FILENAME"] = sorted_file
     # Make sure we can import the required packages
     from pathlib import Path
     import sys
