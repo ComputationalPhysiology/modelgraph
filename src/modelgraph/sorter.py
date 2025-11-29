@@ -1,6 +1,6 @@
 import re
 import sys
-from collections import defaultdict, deque
+
 
 def parse_ode_file(filename):
     """
@@ -24,6 +24,7 @@ def parse_ode_file(filename):
                 buffer = ""
     return equations
 
+
 def get_dependencies(eq):
     """
     Returns a set of variables used on the RHS of an equation.
@@ -36,8 +37,9 @@ def get_dependencies(eq):
     tokens = re.findall(r"\b[A-Za-z_][A-Za-z0-9_]*\b", rhs)
     # Exclude numbers and Python keywords
     numbers = re.compile(r"^\d+(\.\d+)?$")
-    keywords = {"if","else","for","while","return","and","or","not"}
+    keywords = {"if", "else", "for", "while", "return", "and", "or", "not"}
     return set(t for t in tokens if not numbers.match(t) and t not in keywords)
+
 
 def get_lhs(eq):
     """
@@ -45,13 +47,14 @@ def get_lhs(eq):
     """
     return eq.split("=", 1)[0].strip()
 
+
 def sort_equations(equations):
     """
     Topologically sorts equations based on dependencies.
     """
     lhs_map = {get_lhs(eq): eq for eq in equations}
     deps = {get_lhs(eq): get_dependencies(eq) for eq in equations}
-    
+
     # Remove self dependencies and unknowns (external constants)
     for var in deps:
         deps[var] = set(d for d in deps[var] if d in lhs_map and d != var)
@@ -77,6 +80,7 @@ def sort_equations(equations):
 
     return sorted_eqs
 
+
 def main():
     if len(sys.argv) != 2:
         print("Usage: python sorter.py <ode_file>")
@@ -101,6 +105,7 @@ def sort_and_write(filename):
         for eq in sorted_eqs:
             f.write(eq + "\n\n")
     return out_file
+
 
 if __name__ == "__main__":
     main()
