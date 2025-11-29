@@ -1,0 +1,16 @@
+# Contains constants and dependent variables
+
+G = Cm / Rm
+Iion = INa + IK + ICa
+Rm = 250
+INa = m*h*j*(V - 50)
+ICa = d * f * (V - 140)
+IK = n*(V + 90)
+Cm = 1.0
+V = -80
+m = 0.1
+h = 0.8
+j = 0.9
+d = 0.01
+f = 0.9
+n = 0.2
