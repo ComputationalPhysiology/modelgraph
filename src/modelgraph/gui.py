@@ -36,8 +36,8 @@ def dependency_graph():
     name = st.radio("Select parameter / expression", graph.dependent_names)
     G = graph.dependency_graph(name)
     P = nx.nx_pydot.to_pydot(G)
-    with tempfile.NamedTemporaryFile(suffix=".png") as temp:
-        P.write_png(temp.name)
+    with tempfile.NamedTemporaryFile(suffix=".svg") as temp:
+        P.write_svg(temp.name)
         st.image(temp.name)
 
 
@@ -49,8 +49,8 @@ def inv_dependency_graph():
     name = st.radio("Select parameter / expression", graph.inv_dependent_names)
     G = graph.inv_dependency_graph(name)
     P = nx.nx_pydot.to_pydot(G)
-    with tempfile.NamedTemporaryFile(suffix=".png") as temp:
-        P.write_png(temp.name)
+    with tempfile.NamedTemporaryFile(suffix=".svg") as temp:
+        P.write_svg(temp.name)
         st.image(temp.name)
 
 
