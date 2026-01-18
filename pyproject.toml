@@ -52,7 +52,7 @@ docs = [
     "myst-parser",
     "gotran",
     "gotranx",
-    "sphinx-press-theme",
+    "pydata-sphinx-theme",
 ]
 gui = ["streamlit"]
 plot = [
