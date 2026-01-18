@@ -1,150 +1,347 @@
+
 <!DOCTYPE html>
-<html  lang="en">
+
+
+<html lang="en" data-content_root="./" >
+
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <title>modelgraph package</title>
-    
-          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
-      
-      <!-- sphinx script_files -->
-        <script src="_static/documentation_options.js?v=01f34227"></script>
-        <script src="_static/doctools.js?v=9bcbadda"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <title>modelgraph package &#8212; modelgraph 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-      
-      <!-- bundled in js (rollup iife) -->
-      <!-- <script src="_static/theme-vendors.js"></script> -->
-      <script src="_static/theme.js" defer></script>
-    
-  <link rel="index" title="Index" href="genindex.html" />
-  <link rel="search" title="Search" href="search.html" />
-  <link rel="prev" title="modelgraph" href="modules.html" /> 
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=01f34227"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modelgraph';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="modelgraph" href="modules.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-  <body>
-    <div id="app">
-    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
-  <router-link to="index.html" class="home-link">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
     
-      <span class="site-name">modelgraph</span>
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
-  </router-link>
+      <div class="navbar-item">
 
-  <div class="links">
-    <navlinks class="can-hide">
+  
+    
+  
 
-
-
-    </navlinks>
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">modelgraph 0.1.0 documentation</p>
+  
+</a></div>
+    
   </div>
-</navbar>
-
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
       
-      <div class="sidebar-mask" @click="toggleSidebar(false)">
-      </div>
-        <sidebar @toggle-sidebar="toggleSidebar">
-          
-          <navlinks>
-            
-
-
-
-            
-          </navlinks><div id="searchbox" class="searchbox" role="search">
-  <div class="caption"><span class="caption-text">Quick search</span>
-    <div class="searchformwrapper">
-      <form class="search" action="search.html" method="get">
-        <input type="text" name="q" />
-        <input type="submit" value="Search" />
-        <input type="hidden" name="check_keywords" value="yes" />
-        <input type="hidden" name="area" value="default" />
-      </form>
-    </div>
-  </div>
-</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
-  
-    <div class="sidebar-group">
-      <p class="caption">
-        <span class="caption-text"><a href="index.html#license">Contents:</a></span>
-      </p>
-      <ul class="">
-        
-          <li class="toctree-l1 ">
-            
-              <a href="hodgkin_huxley.html" class="reference internal ">Demo gotran</a>
-            
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 ">
-            
-              <a href="hodgkin_huxley_gotranx.html" class="reference internal ">Demo gotranx</a>
-            
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 ">
-            
-              <a href="modules.html" class="reference internal ">modelgraph</a>
-            
-
-            
-          </li>
-
-        
-      </ul>
-    </div>
-  
-</div>
-        </sidebar>
-
-      <page>
-          <div class="body-header" role="navigation" aria-label="navigation">
-  
-  <ul class="breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
     
-      <li><a href="modules.html">modelgraph</a> &raquo;</li>
-    
-    <li>modelgraph package</li>
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="hodgkin_huxley.html">
+    Demo gotran
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="hodgkin_huxley_gotranx.html">
+    Demo gotranx
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="modules.html">
+    modelgraph
+  </a>
+</li>
+
   </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
   
 
-  <ul class="page-nav">
-  <li class="prev">
-    <a href="modules.html"
-       title="previous chapter">← modelgraph</a>
-  </li>
-</ul>
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
   
 </div>
-<hr>
-          <div class="content" role="main" v-pre>
-            
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="hodgkin_huxley.html">
+    Demo gotran
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="hodgkin_huxley_gotranx.html">
+    Demo gotranx
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="modules.html">
+    modelgraph
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">modelgraph package</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="modules.html" class="nav-link">modelgraph</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">modelgraph package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="modelgraph-package">
-<h1>modelgraph package<a class="headerlink" href="#modelgraph-package" title="Link to this heading">¶</a></h1>
+<h1>modelgraph package<a class="headerlink" href="#modelgraph-package" title="Link to this heading">#</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
 <section id="module-modelgraph.cli">
-<span id="modelgraph-cli-module"></span><h2>modelgraph.cli module<a class="headerlink" href="#module-modelgraph.cli" title="Link to this heading">¶</a></h2>
+<span id="modelgraph-cli-module"></span><h2>modelgraph.cli module<a class="headerlink" href="#module-modelgraph.cli" title="Link to this heading">#</a></h2>
 </section>
 <section id="module-modelgraph.dependency_graph">
-<span id="modelgraph-dependency-graph-module"></span><h2>modelgraph.dependency_graph module<a class="headerlink" href="#module-modelgraph.dependency_graph" title="Link to this heading">¶</a></h2>
+<span id="modelgraph-dependency-graph-module"></span><h2>modelgraph.dependency_graph module<a class="headerlink" href="#module-modelgraph.dependency_graph" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#modelgraph.dependency_graph.GotranxODE" title="modelgraph.dependency_graph.GotranxODE"><span class="pre">GotranxODE</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelgraph.dependency_graph.GotranODE" title="modelgraph.dependency_graph.GotranODE"><span class="pre">GotranODE</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#modelgraph.dependency_graph.GotranxODE" title="modelgraph.dependency_graph.GotranxODE"><span class="pre">GotranxODE</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelgraph.dependency_graph.GotranODE" title="modelgraph.dependency_graph.GotranODE"><span class="pre">GotranODE</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.dependency_graph">
-<span class="sig-name descname"><span class="pre">dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DiGraph</span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependency_graph" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DiGraph</span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependency_graph" title="Link to this definition">#</a></dt>
 <dd><p>Get the dependency graph where each node reperesents
 an expression and a directed edge means that there is
 a dependency.</p>
@@ -166,7 +363,7 @@ other node.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.dependent_names">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependent_names" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">dependent_names</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependent_names" title="Link to this definition">#</a></dt>
 <dd><p>Return all the names of the expressions having dependencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -180,7 +377,7 @@ other node.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.dependents">
-<span class="sig-name descname"><span class="pre">dependents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependents" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dependents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.dependents" title="Link to this definition">#</a></dt>
 <dd><p>Given a name of an expression return its dependencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -201,7 +398,7 @@ indirect dependencies, by default True</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.inv_dependency_graph">
-<span class="sig-name descname"><span class="pre">inv_dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.inv_dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependency_graph" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">inv_dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.inv_dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependency_graph" title="Link to this definition">#</a></dt>
 <dd><p>Get the dependency graph where each node reperesents
 an expression and a directed edge means that there is
 a dependency.</p>
@@ -222,7 +419,7 @@ another node if the root node depends on the other node.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.inv_dependent_names">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inv_dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependent_names" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">inv_dependent_names</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependent_names" title="Link to this definition">#</a></dt>
 <dd><p>Return all the names of the expressions that other expressions depdens on</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -236,7 +433,7 @@ another node if the root node depends on the other node.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.DependencyGraph.inv_dependents">
-<span class="sig-name descname"><span class="pre">inv_dependents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.inv_dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependents" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">inv_dependents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.inv_dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependents" title="Link to this definition">#</a></dt>
 <dd><p>Given a name of an expression return all expressions
 that depends on it</p>
 <dl class="field-list simple">
@@ -260,68 +457,68 @@ indirect dependencies, by default True</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranDependent">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranDependent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranDependent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranDependent" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranDependent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranDependent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranDependent" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranDependent.is_Symbol">
-<span class="sig-name descname"><span class="pre">is_Symbol</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#modelgraph.dependency_graph.GotranDependent.is_Symbol" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_Symbol</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#modelgraph.dependency_graph.GotranDependent.is_Symbol" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranODE">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranODE" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranODE" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranODE.intermediates">
-<span class="sig-name descname"><span class="pre">intermediates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelgraph.dependency_graph.GotranVariable" title="modelgraph.dependency_graph.GotranVariable"><span class="pre">GotranVariable</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.GotranODE.intermediates" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">intermediates</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelgraph.dependency_graph.GotranVariable" title="modelgraph.dependency_graph.GotranVariable"><span class="pre">GotranVariable</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#modelgraph.dependency_graph.GotranODE.intermediates" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranODE.state_expressions">
-<span class="sig-name descname"><span class="pre">state_expressions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelgraph.dependency_graph.GotranVariable" title="modelgraph.dependency_graph.GotranVariable"><span class="pre">GotranVariable</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.GotranODE.state_expressions" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">state_expressions</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelgraph.dependency_graph.GotranVariable" title="modelgraph.dependency_graph.GotranVariable"><span class="pre">GotranVariable</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#modelgraph.dependency_graph.GotranODE.state_expressions" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranVariable">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranVariable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranVariable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranVariable" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranVariable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranVariable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranVariable" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranVariable.dependent">
-<span class="sig-name descname"><span class="pre">dependent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelgraph.dependency_graph.GotranDependent" title="modelgraph.dependency_graph.GotranDependent"><span class="pre">GotranDependent</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.dependency_graph.GotranVariable.dependent" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dependent</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelgraph.dependency_graph.GotranDependent" title="modelgraph.dependency_graph.GotranDependent"><span class="pre">GotranDependent</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#modelgraph.dependency_graph.GotranVariable.dependent" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranVariable.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#modelgraph.dependency_graph.GotranVariable.name" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#modelgraph.dependency_graph.GotranVariable.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranxODE">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranxODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranxODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranxODE" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.dependency_graph.</span></span><span class="sig-name descname"><span class="pre">GotranxODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranxODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranxODE" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.dependency_graph.GotranxODE.dependents">
-<span class="sig-name descname"><span class="pre">dependents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranxODE.dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranxODE.dependents" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dependents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#GotranxODE.dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.dependency_graph.GotranxODE.dependents" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-modelgraph">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-modelgraph" title="Link to this heading">¶</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-modelgraph" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#modelgraph.dependency_graph.GotranxODE" title="modelgraph.dependency_graph.GotranxODE"><span class="pre">GotranxODE</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelgraph.dependency_graph.GotranODE" title="modelgraph.dependency_graph.GotranODE"><span class="pre">GotranODE</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.</span></span><span class="sig-name descname"><span class="pre">DependencyGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#modelgraph.dependency_graph.GotranxODE" title="modelgraph.dependency_graph.GotranxODE"><span class="pre">GotranxODE</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#modelgraph.dependency_graph.GotranODE" title="modelgraph.dependency_graph.GotranODE"><span class="pre">GotranODE</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph.dependency_graph">
-<span class="sig-name descname"><span class="pre">dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DiGraph</span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph.dependency_graph" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DiGraph</span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph.dependency_graph" title="Link to this definition">#</a></dt>
 <dd><p>Get the dependency graph where each node reperesents
 an expression and a directed edge means that there is
 a dependency.</p>
@@ -343,7 +540,7 @@ other node.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph.dependent_names">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.DependencyGraph.dependent_names" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">dependent_names</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#modelgraph.DependencyGraph.dependent_names" title="Link to this definition">#</a></dt>
 <dd><p>Return all the names of the expressions having dependencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -357,7 +554,7 @@ other node.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph.dependents">
-<span class="sig-name descname"><span class="pre">dependents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph.dependents" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dependents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph.dependents" title="Link to this definition">#</a></dt>
 <dd><p>Given a name of an expression return its dependencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -378,7 +575,7 @@ indirect dependencies, by default True</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph.inv_dependency_graph">
-<span class="sig-name descname"><span class="pre">inv_dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.inv_dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph.inv_dependency_graph" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">inv_dependency_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.inv_dependency_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph.inv_dependency_graph" title="Link to this definition">#</a></dt>
 <dd><p>Get the dependency graph where each node reperesents
 an expression and a directed edge means that there is
 a dependency.</p>
@@ -399,7 +596,7 @@ another node if the root node depends on the other node.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph.inv_dependent_names">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inv_dependent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelgraph.DependencyGraph.inv_dependent_names" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">inv_dependent_names</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#modelgraph.DependencyGraph.inv_dependent_names" title="Link to this definition">#</a></dt>
 <dd><p>Return all the names of the expressions that other expressions depdens on</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -413,7 +610,7 @@ another node if the root node depends on the other node.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.DependencyGraph.inv_dependents">
-<span class="sig-name descname"><span class="pre">inv_dependents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.inv_dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph.inv_dependents" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">inv_dependents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/modelgraph/dependency_graph.html#DependencyGraph.inv_dependents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelgraph.DependencyGraph.inv_dependents" title="Link to this definition">#</a></dt>
 <dd><p>Given a name of an expression return all expressions
 that depends on it</p>
 <dl class="field-list simple">
@@ -439,23 +636,154 @@ indirect dependencies, by default True</p></li>
 </section>
 
 
-          </div>
-          <div class="page-nav">
-            <div class="inner"><ul class="page-nav">
-  <li class="prev">
-    <a href="modules.html"
-       title="previous chapter">← modelgraph</a>
-  </li>
-</ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2022, Henrik Finsberg.
-    <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.3 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modules.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">modelgraph</p>
+      </div>
+    </a>
 </div>
+                </footer>
+              
             </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-modelgraph.cli">modelgraph.cli module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-modelgraph.dependency_graph">modelgraph.dependency_graph module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.DependencyGraph"><code class="docutils literal notranslate"><span class="pre">DependencyGraph</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.DependencyGraph.dependency_graph"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.dependency_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.DependencyGraph.dependent_names"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.dependent_names</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.DependencyGraph.dependents"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.dependents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependency_graph"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependency_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependent_names"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependent_names</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.DependencyGraph.inv_dependents"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependents()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.GotranDependent"><code class="docutils literal notranslate"><span class="pre">GotranDependent</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.GotranDependent.is_Symbol"><code class="docutils literal notranslate"><span class="pre">GotranDependent.is_Symbol</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.GotranODE"><code class="docutils literal notranslate"><span class="pre">GotranODE</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.GotranODE.intermediates"><code class="docutils literal notranslate"><span class="pre">GotranODE.intermediates</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.GotranODE.state_expressions"><code class="docutils literal notranslate"><span class="pre">GotranODE.state_expressions</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.GotranVariable"><code class="docutils literal notranslate"><span class="pre">GotranVariable</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.GotranVariable.dependent"><code class="docutils literal notranslate"><span class="pre">GotranVariable.dependent</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.GotranVariable.name"><code class="docutils literal notranslate"><span class="pre">GotranVariable.name</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.GotranxODE"><code class="docutils literal notranslate"><span class="pre">GotranxODE</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.dependency_graph.GotranxODE.dependents"><code class="docutils literal notranslate"><span class="pre">GotranxODE.dependents()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-modelgraph">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.DependencyGraph"><code class="docutils literal notranslate"><span class="pre">DependencyGraph</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.DependencyGraph.dependency_graph"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.dependency_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.DependencyGraph.dependent_names"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.dependent_names</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.DependencyGraph.dependents"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.dependents()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.DependencyGraph.inv_dependency_graph"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependency_graph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.DependencyGraph.inv_dependent_names"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependent_names</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelgraph.DependencyGraph.inv_dependents"><code class="docutils literal notranslate"><span class="pre">DependencyGraph.inv_dependents()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/modelgraph.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
           </div>
-      </page>
-    </div></div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
     
+      © Copyright 2022, Henrik Finsberg.
+      <br/>
     
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
   </body>
 </html>
