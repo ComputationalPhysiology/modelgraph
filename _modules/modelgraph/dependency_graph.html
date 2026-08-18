@@ -404,19 +404,19 @@
 <a class="viewcode-back" href="../../modelgraph.html#modelgraph.dependency_graph.DependencyGraph">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">DependencyGraph</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ode</span><span class="p">:</span> <span class="n">GotranxODE</span> <span class="o">|</span> <span class="n">GotranODE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Intialize dependency graph</span>
+<span class="w">        </span><span class="sd">"""Intialize dependency graph</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        ode : GotranxODE | GotranODE</span>
 <span class="sd">            The model represented as a `gotranx.ODE` or `gotran.ODE` object</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_dependents</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_inv_dependents</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ode</span> <span class="o">=</span> <span class="n">ode</span>
 
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ode</span><span class="p">,</span> <span class="s2">&quot;dependents&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ode</span><span class="p">,</span> <span class="s2">"dependents"</span><span class="p">):</span>
             <span class="n">deps</span> <span class="o">=</span> <span class="n">ode</span><span class="o">.</span><span class="n">dependents</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_dependents</span> <span class="o">=</span> <span class="n">deps</span>
             <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dependents</span><span class="p">:</span>
@@ -429,7 +429,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_load_dependents</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_load_dependents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load dependencies from ode&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Load dependencies from ode"""</span>
         <span class="k">for</span> <span class="n">intermediate</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ode</span><span class="o">.</span><span class="n">intermediates</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ode</span><span class="o">.</span><span class="n">state_expressions</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_dependents</span><span class="p">[</span><span class="n">intermediate</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
             <span class="k">for</span> <span class="n">dependent</span> <span class="ow">in</span> <span class="n">intermediate</span><span class="o">.</span><span class="n">dependent</span><span class="p">:</span>
@@ -443,34 +443,34 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_inv_dependents</span><span class="p">[</span><span class="n">depname</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">intermediate</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ode</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ode</span><span class="si">}</span><span class="s2">)"</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">dependent_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return all the names of the expressions having dependencies</span>
+<span class="w">        </span><span class="sd">"""Return all the names of the expressions having dependencies</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        list[str]</span>
 <span class="sd">            List of names</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dependents</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">inv_dependent_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return all the names of the expressions that other expressions depdens on</span>
+<span class="w">        </span><span class="sd">"""Return all the names of the expressions that other expressions depdens on</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        list[str]</span>
 <span class="sd">            List of names</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inv_dependents</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
 <div class="viewcode-block" id="DependencyGraph.dependents">
 <a class="viewcode-back" href="../../modelgraph.html#modelgraph.dependency_graph.DependencyGraph.dependents">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">dependents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">direct</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Given a name of an expression return its dependencies</span>
+<span class="w">        </span><span class="sd">"""Given a name of an expression return its dependencies</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -484,7 +484,7 @@
 <span class="sd">        -------</span>
 <span class="sd">        set[str]</span>
 <span class="sd">            Set of names of all dependencies</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">direct</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dependents</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">()</span>
 
@@ -495,7 +495,7 @@
 <div class="viewcode-block" id="DependencyGraph.inv_dependents">
 <a class="viewcode-back" href="../../modelgraph.html#modelgraph.dependency_graph.DependencyGraph.inv_dependents">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">inv_dependents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">direct</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Given a name of an expression return all expressions</span>
+<span class="w">        </span><span class="sd">"""Given a name of an expression return all expressions</span>
 <span class="sd">        that depends on it</span>
 
 <span class="sd">        Parameters</span>
@@ -510,7 +510,7 @@
 <span class="sd">        -------</span>
 <span class="sd">        set[str]</span>
 <span class="sd">            Set of names of all dependencies</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">direct</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inv_dependents</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">()</span>
 
@@ -521,7 +521,7 @@
 <div class="viewcode-block" id="DependencyGraph.dependency_graph">
 <a class="viewcode-back" href="../../modelgraph.html#modelgraph.dependency_graph.DependencyGraph.dependency_graph">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">dependency_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the dependency graph where each node reperesents</span>
+<span class="w">        </span><span class="sd">"""Get the dependency graph where each node reperesents</span>
 <span class="sd">        an expression and a directed edge means that there is</span>
 <span class="sd">        a dependency.</span>
 
@@ -538,14 +538,14 @@
 <span class="sd">        -------</span>
 <span class="sd">        nx.DiGraph</span>
 <span class="sd">            A directed dependency graph</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="n">_build_graph</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dependents</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="DependencyGraph.inv_dependency_graph">
 <a class="viewcode-back" href="../../modelgraph.html#modelgraph.dependency_graph.DependencyGraph.inv_dependency_graph">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">inv_dependency_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the dependency graph where each node reperesents</span>
+<span class="w">        </span><span class="sd">"""Get the dependency graph where each node reperesents</span>
 <span class="sd">        an expression and a directed edge means that there is</span>
 <span class="sd">        a dependency.</span>
 
@@ -561,7 +561,7 @@
 <span class="sd">        -------</span>
 <span class="sd">        nx.DiGraph</span>
 <span class="sd">            A directed dependency graph</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="n">_build_graph</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inv_dependents</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
 </div>
 

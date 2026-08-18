@@ -333,15 +333,15 @@ code snippet</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">gotranx</span>
 
 <span class="c1"># Load ode using gotran</span>
-<span class="n">ode</span> <span class="o">=</span> <span class="n">gotranx</span><span class="o">.</span><span class="n">load_ode</span><span class="p">(</span><span class="s2">&quot;hodgkin_huxley_squid_axon_model_1952_original.ode&quot;</span><span class="p">)</span>
+<span class="n">ode</span> <span class="o">=</span> <span class="n">gotranx</span><span class="o">.</span><span class="n">load_ode</span><span class="p">(</span><span class="s2">"hodgkin_huxley_squid_axon_model_1952_original.ode"</span><span class="p">)</span>
 <span class="c1"># Build dependency graph</span>
 <span class="n">graph</span> <span class="o">=</span> <span class="n">DependencyGraph</span><span class="p">(</span><span class="n">ode</span><span class="p">)</span>
 <span class="c1"># Get the components that depends on g_Na (we call this inverse dependents)</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">inv_dependency_graph</span><span class="p">(</span><span class="s2">&quot;g_Na&quot;</span><span class="p">)</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">inv_dependency_graph</span><span class="p">(</span><span class="s2">"g_Na"</span><span class="p">)</span>
 <span class="c1"># Visualize using matplotlib (python -m pip install matplotlib)</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;g_Na_mpl.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"g_Na_mpl.png"</span><span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -349,7 +349,7 @@ code snippet</p>
 </figure>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Or using pydot (python -m pip install pydot)</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">nx_pydot</span><span class="o">.</span><span class="n">to_pydot</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-<span class="n">P</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s2">&quot;g_Na_pydot.png&quot;</span><span class="p">)</span>
+<span class="n">P</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s2">"g_Na_pydot.png"</span><span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -358,13 +358,13 @@ code snippet</p>
 <p>It is also possible to go the other way around, i.e if you want to look
 at e.g <code class="docutils literal notranslate"><span class="pre">dV_dt</span></code> and see that it depends on</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize what dV_dt depdens on</span>
-<span class="n">G_dV_dt</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">dependency_graph</span><span class="p">(</span><span class="s2">&quot;dV_dt&quot;</span><span class="p">)</span>
+<span class="n">G_dV_dt</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">dependency_graph</span><span class="p">(</span><span class="s2">"dV_dt"</span><span class="p">)</span>
 
 <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G_dV_dt</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;dV_dt_mpl.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"dV_dt_mpl.png"</span><span class="p">)</span>
 
 <span class="n">P_dV_dt</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">nx_pydot</span><span class="o">.</span><span class="n">to_pydot</span><span class="p">(</span><span class="n">G_dV_dt</span><span class="p">)</span>
-<span class="n">P_dV_dt</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s2">&quot;dV_dt_pydot.png&quot;</span><span class="p">)</span>
+<span class="n">P_dV_dt</span><span class="o">.</span><span class="n">write_png</span><span class="p">(</span><span class="s2">"dV_dt_pydot.png"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Here we only display the graph <code class="docutils literal notranslate"><span class="pre">pydot</span></code> since the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>
