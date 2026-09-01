@@ -29,6 +29,7 @@ graph = DependencyGraph(ode)
 G = graph.inv_dependency_graph("g_Na")
 # Visualize using matplotlib (python -m pip install matplotlib)
 import matplotlib.pyplot as plt
+
 nx.draw(G, with_labels=True, font_size=10, node_size=2000)
 plt.savefig("g_Na_mpl.png")
 ```
